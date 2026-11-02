@@ -1,4 +1,5 @@
 import { useState } from 'react';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
 
 export const useTextAnalyzer = () => {
     const [file, setFile] = useState(null);
@@ -28,7 +29,7 @@ export const useTextAnalyzer = () => {
             const formData = new FormData();
             formData.append('file', file);
 
-            const response = await fetch('http://localhost:5002/api/analyzeFile', {
+            const response = await fetch(`${API_URL}/api/analyzeFile`, {
                 method: 'POST',
                 body: formData
             });
@@ -58,7 +59,7 @@ export const useTextAnalyzer = () => {
         setError('');
 
         try {
-            const response = await fetch('http://localhost:5002/api/analyzeText', {
+            const response = await fetch(`${API_URL}/api/analyzeText`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({text})

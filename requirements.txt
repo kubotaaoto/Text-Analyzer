@@ -1,0 +1,9 @@
+   flask
+   flask-cors
+   gunicorn
+   beautifulsoup4
+   nltk
+   spacy
+   pdfplumber
+   python-docx
+   striprtf

@@ -8,9 +8,6 @@ from bs4 import BeautifulSoup
 import tempfile
 import os
 import json
-from nltk.stem import WordNetLemmatizer
-from nltk.corpus import wordnet
-from nltk import pos_tag
 import spacy
 import csv
 import pdfplumber
@@ -24,7 +21,7 @@ with open('advanced_words.csv', 'r', encoding='utf-8') as f:
     reader = csv.reader(f)
     advanced_words_set = set(row[0] for row in reader)
 
-nlp = spacy.load("en_core_web_lg")
+nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
 
 with open('Frequency_FLT.json', 'r', encoding='utf-8') as f:
     freq_data = json.load(f)
@@ -206,11 +203,3 @@ def health_check():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5002)
-
-# Requirements for requirements.txt:
-"""
-Flask==2.3.3
-Flask-CORS==4.0.0
-beautifulsoup4==4.12.2
-lxml==4.9.3
-"""
