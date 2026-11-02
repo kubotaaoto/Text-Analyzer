@@ -49,7 +49,7 @@ A web app that finds vocabulary worth learning in the things you already read an
 | `POST` | `/api/analyzeFile` | `multipart/form-data` with a `file` field | Analyze an uploaded file |
 | `POST` | `/api/analyzeText` | JSON `{ "text": "..." }` | Analyze raw text |
 | `GET` | `/health` | — | Health check |
- 
+
 Example response:
  
 ```json
